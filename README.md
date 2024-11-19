@@ -41,9 +41,9 @@ socket.connect("tcp://127.0.0.1:5555")  # Connect to the microservice
 
 # Step 2: Prepare the request payload
 markdown_content = "Some **bold** and _italic_ text."
-request_payload = {"markdown": markdown_content}
+request = {"markdown": markdown_content}
 
-# Step 3: Send the request
+# Step 3/4: Send the request
 socket.send_string(json.dumps(request_payload))  # Convert to JSON string and send
 ```
 
@@ -57,6 +57,8 @@ Once the microservice processes your request, it will respond with a JSON string
 }
 ```
 After sending the request, wait for the server to reply using ```socket.recv_string().```
+
+Example Call
 ```
 response = socket.recv_string()  # Receive the JSON string from the server
 ```
